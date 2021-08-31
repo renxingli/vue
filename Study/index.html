@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ol>
+				<my_com v-for="item in List"
+				v-bind:ports="item"
+				v-bind:key="item.id"></my_com>
+			</ol>
+		</div>
+	</body>
+	
+	<script>
+		Vue.component('my_com',{
+			props:['ports'],
+			template:'<li>{{ports.text}}</li>'
+		})
+		var vue = new Vue({
+			el:'#app',
+			data:{
+				List:[
+					{id:1,text:'蔬菜'},
+					{id:2,text:'汉堡'}
+				]
+			}
+			
+			// methods:{
+			// 	onbutton:function(){
+			// 		var _that = this
+			// 		_that.message = _that.message.split('').reverse().join('')
+			// 	}
+			// }
+		})
+	</script>
+</html>
